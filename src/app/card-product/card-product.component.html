@@ -1,0 +1,36 @@
+<div class="content">
+  <div class="container">
+    <img class="image" loading="lazy" [src]="product.image" alt="">
+    <div class="content-header">
+      <h1 class="title">{{product.title.substring(0,30)}}</h1>
+      <div class="content-category">
+        <img [src]="starIcon" width='20'>
+        <h3 class="font-ligth text-sm "><span class="font-bold">Categoria:</span>{{product.category}}
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="box">
+    <div class="detail">
+      <h1 class="text">Datos Generales</h1>
+    </div>
+    <div class="caja">
+      <p class="line-height-2"><span class="text-black">Descripcion:</span> {{product.description.substring(0,220)}}
+      </p>
+      <p><span class="text-black">Precio:</span> {{product.price}}</p>
+    </div>
+  </div>
+</div>
+<div class="flex justify-content-between">
+  @for (icon of icons; track $index) {
+  @if(icon === 'assets/delete.png'){
+  <img [src]="icon" (click)="handleProduct()" class="cursor-pointer" />
+  }@else{
+  <img [src]="icon" />
+  }
+
+  @if ($index !== 4) {
+  <div class="divider"></div>
+  }
+  }
+</div>

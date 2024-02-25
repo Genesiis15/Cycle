@@ -1,0 +1,95 @@
+     @if(confirm){
+     <p-messages severity="info">
+       <ng-template pTemplate>
+         <div class="ml-2">Creado un nuevo producto</div>
+       </ng-template>
+     </p-messages>
+     }
+
+     <div class="flex justify-content-between flex-wrap align-items-center p-2  rounded bg-gray-100 ">
+       <p-dataViewLayoutOptions class="m-1 flex-order-1"></p-dataViewLayoutOptions>
+
+       <div class="p-field p-input-icon-right p-col-12 p-md-6 p-lg-4 w-30rem flex-order-3 sm:flex-order-2">
+
+         <i class="pi pi-search "></i>
+         <input id="responsiveInput" type="text" pInputText placeholder="Buscar" class="p-inputtext-sm p-2 w-full m-1 "
+           #search (keyup)="filterProducts(search.value)" />
+       </div>
+       <div class="flex justify-content-center m-1 flex-order-2 sm:flex-order-3">
+
+
+         <p-button (click)="showDialog()" label="Agregar"><i class="pi pi-plus-circle pr-2  "></i></p-button>
+
+       </div>
+       <p-dialog header="Detalle del Producto" [(visible)]="visible" [modal]="true" [draggable]="false"
+         [resizable]="false" class="w-full">
+         <div class="flex flex-column gap-2  ">
+           <label for="" class="block">Nombre</label>
+           <input type="text" pInputText [(ngModel)]="value.title" />
+         </div>
+         <div class="flex flex-column gap-2 mt-4">
+           <label for="" class="block">Descripción</label>
+           <textarea rows="5" cols="30" pInputTextarea [(ngModel)]="value.description"></textarea>
+         </div>
+         <div class="flex flex-column gap-2 mt-4">
+           <input type="file" class="hidden" id="image">
+           <label class="block">Imagen</label>
+           <label for="image" class="block cursor-pointer">
+             <img [src]="imgInput" alt="">
+           </label>
+           <div class="border mt-4 flex flex-column gap-3">
+             Categoría
+
+             <div class="flex gap-5 ">
+               <div class="flex align-items-center gap-3 p-field-radiobutton ">
+                 <p-radioButton name="jewelery" value="jewelery" [(ngModel)]="value.category" inputId="Accessories">
+                 </p-radioButton>
+                 <label for="Accessories" class="ml-2">Jewelery</label>
+               </div>
+               <div class="flex align-items-center gap-2 p-field-radiobutton">
+                 <p-radioButton name="men's clothing" value="men's clothing" [(ngModel)]="value.category"
+                   inputId="ingredient2">
+                 </p-radioButton>
+                 <label for="ingredient2" class="ml-2">Men</label>
+               </div>
+             </div>
+
+
+             <div class="flex gap-3 ">
+               <div class="flex align-items-center gap-3 p-field-radiobutton">
+                 <p-radioButton name="electronics" value="electronics" [(ngModel)]="value.category"
+                   inputId="ingredient3">
+                 </p-radioButton>
+                 <label for="ingredient3" class="ml-2">Electronics</label>
+               </div>
+
+               <div class="flex align-items-center gap-2 p-field-radiobutton">
+                 <p-radioButton name="women's clothing" value="women's clothing" [(ngModel)]="value.category"
+                   inputId="ingredient4">
+                 </p-radioButton>
+                 <label for="ingredient4" class="ml-2">Woman</label>
+               </div>
+             </div>
+
+
+
+           </div>
+
+
+           <div class="flex flex-column gap-2 mt-4">
+             <label for="" class="block">Precio</label>
+             <input pInputText [(ngModel)]="value.price" />
+           </div>
+         </div>
+
+         <div class="flex  justify-content-end gap-2 mt-4">
+           <p-button icon="pi pi-times" label="Cancelar" (click)='visible = false' [text]="true" severity="danger">
+           </p-button>
+           <p-button label="Guardar" [text]="true" (onClick)="pushValue(value)"></p-button>
+
+         </div>
+
+       </p-dialog>
+     </div>
+
+     <!-- <button (click)="increment()">Agregar</button> -->

@@ -1,0 +1,44 @@
+<nav class="container flex border justify-content-between align-items-center bg-gray-100">
+  <div>
+    <p-button (click)="state = true" label="Menu"></p-button>
+
+  </div>
+  <p-sidebar [(visible)]="state">
+    <ng-template pTemplate="header">Menu</ng-template>
+    <ng-template pTemplate="content" class="p-5">
+      <ul class="list-none text-center">
+        @for (item of menu; track $index) {
+        <li>
+          <a [routerLink]="item.url" class="no-underline text-gray-800 text-2xl hover:text-gray-400">
+            <span class="item">{{item.title}}</span>
+          </a>
+        </li>
+        }
+      </ul>
+    </ng-template>
+  </p-sidebar>
+  <p-sidebar [(visible)]="profile" position="right">
+    <ng-template pTemplate="header">Profile</ng-template>
+    <ng-template pTemplate="content" class="p-5 ">
+      <div class="flex flex-column align-items-center">
+
+        <img [src]="imagen" class="w-5">
+      </div>
+      <ul class="list-none text-center flex flex-column gap-2">
+        @for (item of profileData; track $index) {
+        <li>
+          <h2 class=" text-gray-800 text-xl  ">
+            <span class="item">{{item}}</span>
+          </h2>
+        </li>
+        }
+        <li>
+          <a href="https://www.linkedin.com/in/genesis-rojas-a185012a9/" class=" text-gray-800 text-sm  ">
+            <span class="item"> 'https://www.linkedin.com/in/genesis-rojas-a185012a9/'</span>
+          </a>
+        </li>
+      </ul>
+    </ng-template>
+  </p-sidebar>
+  <p-button label="Perfil" (click)="profile = true"></p-button>
+</nav>

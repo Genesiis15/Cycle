@@ -1,0 +1,19 @@
+@import "primeicons/primeicons.css";
+
+
+.rounded{
+    border-radius: 8px;
+    border: solid 1px silver;
+}
+
+@media (min-width:  600px) and (max-width:  959.98px) {
+    .ocultar{
+        background-color: red;
+        padding: 1010px;
+    }
+}
+
+/* .border{
+    border: solid red;
+    width: 120%;
+} */
