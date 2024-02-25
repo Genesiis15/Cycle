@@ -2,6 +2,10 @@
 
 Este proyecto se generó con [Angular CLI](https://github.com/angular/angular-cli) versión 17.2.0.
 
+## Instalacion de proyecto
+
+Para obtener las dependencias del proyecto `npm install`
+
 ## Servidor de desarrollo
 
 Ejecute `ngserve` para un servidor de desarrollo. Navegue hasta `http://localhost:4200/`. La aplicación se recargará automáticamente si cambia alguno de los archivos fuente.
@@ -23,8 +27,7 @@ Ejecute `ng test` para ejecutar las pruebas unitarias a través de [Karma] (http
 Ejecute `ng e2e` para ejecutar las pruebas de un extremo a otro a través de una plataforma de su elección. Para utilizar este comando, primero debe agregar un paquete que implemente capacidades de prueba de un extremo a otro.
 
 ## Más ayuda
-
-## NPM INSTALL 
+ 
 
 Para instalar las dependecias del proyecto.
 
